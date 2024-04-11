@@ -1,0 +1,29 @@
+.product-image-home {
+    height: 200px; 
+    object-fit: cover;
+  }
+.brand-logo {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 5px;
+}
+.bg-grey{
+  background-color: #747488;
+}
+.outer-container {
+  background-color: #f0f0f0;
+  padding: 20px; 
+  min-height: 100vh;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .brand-logo {
+    max-width: 100px;
+    max-height: 100px; 
+  }
+}

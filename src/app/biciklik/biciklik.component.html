@@ -1,0 +1,28 @@
+<div class="outer-container">
+  <div class="container mt-3">
+    <div class="row mt-4">
+      <div class="col-md-3 mb-4" *ngFor="let termek of products.slice((page - 1) * pageSize, page * pageSize)">
+        <div class="card">
+          <img *ngIf="termek.kep_helye" [src]="termek.kep_helye" class="card-img-top img-fluid termek-image-home" alt="Termék Kép">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a class="nav-item nav-link" routerLink="/home">{{ termek.termek_nev }}</a>
+            </h5>          
+            <p class="card-text"><strong>Kategória:</strong> {{ termek.kategoria_neve }}</p>
+            <p class="card-text"><strong>Gyártó:</strong> {{ termek.gyarto_neve }}</p>
+            <p class="card-text"><strong>Raktáron lévő Mennyiség:</strong> {{ termek.raktarondb }}</p>
+            <p class="card-text"><strong>Súly:</strong> {{ termek.tomeg_erteke }} {{ termek.mertek_egysege }}</p>
+            <p class="card-text"><strong>Szín:</strong> {{ termek.szine }}</p>
+            <p class="card-text"><strong>Leírás:</strong> {{ termek.leiras }}</p>
+            <p class="card-text"><strong>Ár:</strong> {{ termek.egyseg_ar | currency:'HUF' }}</p>
+            <p class="card-text"><strong>Elérhetőség:</strong> {{ termek.elerheto ? 'Elérhető' : 'Nem Elérhető' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button (click)="onPageChange(page - 1)" [disabled]="page === 1">Previous</button>
+      <button (click)="onPageChange(page + 1)" [disabled]="page * pageSize >= totalItems">Next</button>
+    </div>
+  </div>
+</div>
