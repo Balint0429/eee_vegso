@@ -6,16 +6,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AlkatreszekComponent } from './alkatreszek/alkatreszek.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BiciklikComponent } from './biciklik/biciklik.component';
+import { TermekComponent } from './termek/termek.component';
+
 import { LoginComponent } from './login/login.component';
-import { KiegeszitokComponent } from './kiegeszitok/kiegeszitok.component';
 import { RolunkComponent } from './rolunk/rolunk.component';
 import { RegisterComponent } from './register/register.component';
 import { VerifyComponent } from './verify/verify.component';
-import { TermekComponent } from './termek/termek.component';
+
 
 
 @NgModule({
@@ -23,8 +23,6 @@ import { TermekComponent } from './termek/termek.component';
     AppComponent,
     HomeComponent,
     BiciklikComponent,
-    AlkatreszekComponent,
-    KiegeszitokComponent,
     TermekComponent,
     RolunkComponent,
     LoginComponent,

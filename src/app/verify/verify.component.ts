@@ -12,7 +12,7 @@ export class VerifyComponent implements OnInit {
   code: string = '';
   isSubmitting: boolean = false;
   validationErrors: any = [];
-  verificationSuccess: boolean = false; // Track verification success
+  verificationSuccess: boolean = false; 
 
   constructor(public userAuthService: UserAuthService, private router: Router) { }
 

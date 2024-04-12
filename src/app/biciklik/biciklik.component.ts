@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { PaginationService } from '../pagination.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-biciklik',
@@ -14,7 +15,7 @@ export class BiciklikComponent implements OnInit {
   pageSize: number = 8; 
   totalItems: number = 0; 
 
-  constructor(private productService: ProductService, private paginationService: PaginationService) { }
+  constructor(private productService: ProductService, private paginationService: PaginationService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -36,5 +37,7 @@ export class BiciklikComponent implements OnInit {
     this.paginationService.setCurrentPage(pageNumber);
   }
 
-
+  showProductDetails(productId: number): void {
+    this.router.navigate(['/termek', productId]);
+  }  
 }

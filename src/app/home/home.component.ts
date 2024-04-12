@@ -1,24 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Router } from '@angular/router'; // Importáljuk a Router-t
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   markak = [
-    'brand1.jpg',
-    'brand2.jpg',
-    'brand3.jpg',
-    'brand4.jpg',
-    'brand5.jpg',
+    'assets/markak/brand1.png',
+    'assets/markak/brand2.png',
+    'assets/markak/brand3.png',
+    'assets/markak/brand4.png',
+    'assets/markak/brand5.png',
+    'assets/markak/brand6.png',
   ];
-  products = [
-    { name: 'Bicó', description: 'Alkamasz városi ingázásra és kényelmes ', price: 19.99, image: 'kerekpar1.jpg' },
-    { name: 'Product 2', description: 'Erős és strapabíró kerékpár túrázáshoz', price: 299.99, image: 'kerekpar2.jpg' },
-    { name: 'Product 3', description: 'Könnyű és gyors városi bringa', price: 149.99, image: 'kerekpar1.jpg' },
-    { name: 'Product 4', description: 'Robusztus hegyi kerékpár extrém terepre', price: 499.99, image: 'kerekpar2.jpg' },
-    { name: 'Product 5', description: 'Stílusos vintage stílusú bringa', price: 249.99, image: 'kerekpar1.jpg' },
-    { name: 'Product 6', description: 'Modern és kényelmes elektromos kerékpár', price: 899.99, image: 'kerekpar2.jpg' }
-  ];
+
+  products: any[] = [];
+
+  constructor(private productService: ProductService, private router: Router) { } // Adjuk hozzá a Router-t a konstruktor paramétereként
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.productService.getProducts()
+      .subscribe(products => {
+        console.log('Products retrieved:', products);
+        this.products = products;
+      });
+  }
+
+  showProductDetails(productId: number): void {
+    this.router.navigate(['/termek', productId]);
+  }
 }
